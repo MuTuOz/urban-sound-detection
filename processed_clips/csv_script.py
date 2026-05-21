@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 import wave
 
-DATASET_DIR = Path("processed_clips")   # change this if needed
+DATASET_DIR = Path(".")   # change this if needed
 OUTPUT_CSV = Path("clips_metadata.csv")
 
 rows = []
