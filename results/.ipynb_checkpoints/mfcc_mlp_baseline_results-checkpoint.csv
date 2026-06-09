@@ -1,0 +1,2 @@
+model,features,validation_accuracy,validation_macro_f1,test_accuracy,test_macro_f1,hidden_layers,learning_rate,batch_size
+MFCC + MLP,40 MFCC mean + std,0.8907103825136612,0.8864930067425115,0.9180327868852459,0.9108071671236565,"(128, 64)",0.001,32

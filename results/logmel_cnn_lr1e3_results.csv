@@ -1,0 +1,2 @@
+model,experiment,features,validation_accuracy,validation_macro_f1,test_accuracy,test_macro_f1,architecture,learning_rate,batch_size,dropout_dense,notes
+Log-mel + CNN,initial_lr1e-3,64-bin log-mel spectrogram,0.21311475409836064,0.13120629370629372,0.1912568306010929,0.11085858585858586,Conv32-Conv64-Conv128-GAP-Dense128,0.001,32,0.3,High learning rate; overfitting observed

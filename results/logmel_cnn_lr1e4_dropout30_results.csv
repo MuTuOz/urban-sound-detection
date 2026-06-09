@@ -1,0 +1,2 @@
+model,experiment,features,validation_accuracy,validation_macro_f1,test_accuracy,test_macro_f1,architecture,learning_rate,batch_size,dropout_dense,notes
+Log-mel CNN lr=1e-4 dropout=0.30,lr1e-4_dropout30,64-bin log-mel spectrogram,0.9398907103825137,0.939927332587509,0.9289617486338798,0.9262627603058525,Conv32-Conv64-Conv128-GAP-Dense128,0.0001,32,0.3,Tests effect of weaker dropout regularization

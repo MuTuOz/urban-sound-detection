@@ -1,0 +1,6 @@
+model,validation_macro_f1,test_accuracy,test_macro_f1,learning_rate,dropout_dense,architecture
+Deeper Log-mel CNN lr=1e-4 dropout=0.50,0.9388,0.929,0.9293,0.0001,0.5,Conv32-Conv64-Conv128-Conv256-GAP-Dense128
+Log-mel CNN lr=1e-4 dropout=0.50,0.9227,0.929,0.9271,0.0001,0.5,Conv32-Conv64-Conv128-GAP-Dense128
+Log-mel CNN lr=1e-4 dropout=0.30,0.9399,0.929,0.9263,0.0001,0.3,Conv32-Conv64-Conv128-GAP-Dense128
+MFCC + MLP,0.8865,0.918,0.9108,0.001,,
+Log-mel + CNN,0.1312,0.1913,0.1109,0.001,0.3,Conv32-Conv64-Conv128-GAP-Dense128
