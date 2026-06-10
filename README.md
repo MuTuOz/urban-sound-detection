@@ -241,3 +241,6 @@ The current version is no longer only an offline notebook-style experiment. It i
 * Transfer-learning/ensemble extension
 
 This makes the project closer to a real-world machine learning application where the model can improve over time through supervised feedback.
+
+
+go app. directory and  docker compose up --build -d and then go localhost 8000 use envexample for admin token
