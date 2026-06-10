@@ -1,0 +1,11 @@
+{
+  "active_version": "uploaded_deeper_cnn",
+  "active_model_path": "/app/models/model_versions/uploaded_deeper_cnn/model.keras",
+  "training_state": "waiting_for_admin",
+  "training_message": "Yeni kullanıcı cevabı kaydedildi. Admin panelinden kontrol edilebilir.",
+  "last_finished_version": "retrained_20260609_234822",
+  "yamnet_version": null,
+  "yamnet_state": "idle",
+  "yamnet_message": "YAMNet/embedding modeli henüz eğitilmedi.",
+  "updated_at": "2026-06-10 00:58:52"
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Akıncı Ses Admin</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/static/style.css?v=12">
+</head>
+<body>
+  <div class="container admin-container">
+    <header class="topbar compact">
+      <a class="brand" href="/admin" aria-label="Akıncı Ses admin paneli">
+        <div class="logo"><span>♪</span></div>
+        <div>
+          <small>YÖNETİM PANELİ</small>
+          <h1>Akıncı Ses Admin</h1>
+        </div>
+      </a>
+      <a class="admin-link" href="/">Kullanıcı sayfası</a>
+    </header>
+
+    <main class="admin-layout">
+      <section class="admin-card token-card">
+        <div class="token-hero">
+          <div>
+            <div class="kicker">Güvenli giriş</div>
+            <h2>Admin erişimi</h2>
+            <p class="lead">Yüklenen sesleri dinlemek, seçilen aralıkları görmek, etiketleri düzeltmek ve eğitim işlemlerini başlatmak için token girin.</p>
+          </div>
+        </div>
+        <label class="token-label" for="tokenInput">Admin token</label>
+        <div class="token-row professional">
+          <input id="tokenInput" type="password" placeholder="Admin tokeninizi girin" autocomplete="current-password">
+          <button id="saveToken" class="btn">Oturumu kaydet</button>
+        </div>
+        <div id="tokenMsg" class="notice"></div>
+      </section>
+
+      <section class="admin-card model-card">
+        <div class="admin-section-head">
+          <div>
+            <div class="kicker">Model operasyonları</div>
+            <h2>Eğitim durumu</h2>
+            <p class="lead">Eğitim arka planda çalışır. Bu sırada kullanıcı tarafı eski aktif modelle tahmin vermeye devam eder.</p>
+          </div>
+          <div class="train-buttons">
+            <button id="retrainSelected" class="btn">Seçililerle retrain</button>
+            <button id="retrainAll" class="btn">Tüm kayıtlarla retrain</button>
+            <button id="yamnetTrain" class="btn">YAMNet transfer eğit</button>
+          </div>
+        </div>
+
+        <div id="busyLabel" class="busy-label" aria-live="polite">
+          <span class="spinner"></span>
+          <span>Model eğitimi çalışıyor...</span>
+        </div>
+
+        <div class="status-grid">
+          <div class="mini"><b>Aktif model</b><span id="activeModel">-</span></div>
+          <div class="mini"><b>CNN durumu</b><span id="cnnState">-</span></div>
+          <div class="mini"><b>Son model</b><span id="lastModel">-</span></div>
+          <div class="mini"><b>YAMNet</b><span id="yamnetState">-</span></div>
+        </div>
+        <p id="statusMsg" class="notice"></p>
+      </section>
+
+      <section class="admin-card records-card">
+        <div class="admin-section-head">
+          <div>
+            <div class="kicker">Kayıt denetimi</div>
+            <h2>Yüklenen sesler</h2>
+            <p class="lead">Sesi dinleyin, kullanıcının seçtiği aralığı kontrol edin. Yanlışsa admin etiketiyle düzeltin.</p>
+          </div>
+          <div class="train-buttons compact-buttons">
+            <button id="selectAll" class="btn secondary">Tümünü seç</button>
+            <button id="clearSel" class="btn secondary">Seçimi temizle</button>
+            <button id="refresh" class="btn">Yenile</button>
+          </div>
+        </div>
+        <div id="records"></div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/admin.js?v=12"></script>
+</body>
+</html>

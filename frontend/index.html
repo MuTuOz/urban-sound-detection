@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Akıncı Ses</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/static/style.css?v=14">
+</head>
+<body>
+  <div class="container">
+    <header class="topbar compact">
+      <a class="brand" href="/" aria-label="Akıncı Ses ana sayfa">
+        <div class="logo"><span>♪</span></div>
+        <div>
+          <small>SES SINIFLANDIRMA SİSTEMİ</small>
+          <h1>Akıncı Ses</h1>
+        </div>
+      </a>
+      <a class="admin-link" href="/admin">Admin</a>
+    </header>
+
+    <main class="user-flow single-flow">
+      <section class="intro-card card compact-intro">
+        <div class="kicker">1. Aşama</div>
+        <h2 class="hero-title">Ses dosyanızı yükleyin.</h2>
+        <p class="lead">Sistem yüklediğiniz sesi analiz eder, olası ses türlerini yüzde olarak gösterir ve ardından gerçek etiketi sormanıza izin verir.</p>
+      </section>
+
+      <section class="upload-card card">
+        <div class="drop" id="dropZone" role="button" tabindex="0" aria-label="Ses dosyası seçin veya sürükleyin">
+          <input id="fileInput" type="file" accept="audio/*" hidden>
+          <div class="drop-icon">♪</div>
+          <h2>Dosya seçin veya buraya sürükleyin</h2>
+          <div class="formats">WAV, MP3, M4A, FLAC, OGG, AAC, WEBM</div>
+          <div id="fileName" class="file-name"></div>
+        </div>
+
+        <div id="rangeBlock" class="range-card hidden">
+          <div class="range-head">
+            <div>
+              <div class="kicker">2. Aşama</div>
+              <h3>Analiz edilecek ses aralığını seçin</h3>
+              <p>Sesin anlamlı kısmını sağ ve sol tutamaçlarla kıstırarak seçin. Model bu seçili aralığı içeride 2 saniyelik kayan parçalarla analiz eder.</p>
+            </div>
+            <div id="durationBadge" class="duration-badge">Süre: -</div>
+          </div>
+
+          <audio id="previewAudio" preload="metadata"></audio>
+
+          <div class="range-picker-wrap" aria-label="Ses aralığı seçici">
+            <div class="range-values">
+              <span>Başlangıç: <b id="startLabel">0.0 sn</b></span>
+              <span>Bitiş: <b id="endLabel">5.0 sn</b></span>
+              <span>Seçili süre: <b id="selectedDurationLabel">5.0 sn</b></span>
+            </div>
+
+            <div id="rangeTrack" class="range-track" role="group" aria-label="Ses aralığı tutamaçları">
+              <div class="range-rail"></div>
+              <div id="rangeSelection" class="range-selection"></div>
+              <button id="leftHandle" class="range-handle left" type="button" aria-label="Başlangıç tutamacı"></button>
+              <button id="rightHandle" class="range-handle right" type="button" aria-label="Bitiş tutamacı"></button>
+            </div>
+
+            <div class="range-scale">
+              <span>0:00</span>
+              <span id="rangeMidLabel">-</span>
+              <span id="rangeEndLabel">-</span>
+            </div>
+          </div>
+
+          <input id="startSec" type="hidden" value="0">
+          <input id="endSec" type="hidden" value="5">
+
+          <div class="range-actions">
+            <button id="playSelected" class="btn secondary" type="button">Seçili aralığı dinle</button>
+            <button id="useFirst5" class="btn secondary" type="button">İlk 5 saniyeyi seç</button>
+            <button id="useCurrent5" class="btn secondary" type="button">Oynatma noktasından 5 saniye seç</button>
+            <span id="rangeHint" class="range-hint">Seçilen aralık: 0.0 - 5.0 sn</span>
+          </div>
+        </div>
+
+        <div class="record-box">
+          <div>
+            <b>Mikrofonla ses kaydı al</b>
+            <p>Kısa bir kayıt alıp doğrudan analiz ettirebilirsiniz.</p>
+          </div>
+          <button id="recordBtn" class="btn secondary" type="button">Kaydı başlat</button>
+        </div>
+
+        <div class="action-row">
+          <button id="predictBtn" class="btn" type="button" disabled>Tahmin et</button>
+          <button id="resetBtn" class="btn secondary" type="button">Tekrar ses yükle</button>
+        </div>
+
+        <div id="processing" class="inline-processing" aria-live="polite">
+          <span class="spinner"></span>
+          <span>Ses analiz ediliyor...</span>
+        </div>
+        <div id="error" class="error"></div>
+      </section>
+
+      <section id="resultBlock" class="results card"></section>
+    </main>
+  </div>
+  <script src="/static/app.js?v=14"></script>
+</body>
+</html>

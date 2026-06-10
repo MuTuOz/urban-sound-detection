@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    command: uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    env_file:
+      - .env.example
+    depends_on:
+      - worker
+  worker:
+    build: .
+    command: python -m backend.app.worker
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    env_file:
+      - .env.example
